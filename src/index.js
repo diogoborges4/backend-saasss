@@ -23,11 +23,11 @@ app.use(
   })
 );
 
-app.use("/api", routes);
-
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.use("/api", routes);
 
 app.listen(port, () => {
   console.log(`App rodando na porta ${port}`);
