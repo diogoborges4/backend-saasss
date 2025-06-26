@@ -15,11 +15,18 @@ const paymentController = {
         body: {
           items: [
             {
-              title: "Meu produto",
-              quantity: 1,
-              unit_price: 25,
+              title: req.body.title,
+              quantity: req.body.quantity,
+              unit_price: req.body.price,
             },
           ],
+          back_urls: {
+            success: "http://localhost:5173/",
+            failure: "http://localhost:5173/",
+            pending: "http://localhost:5173/",
+          },
+          auto_return: "approved",
+          notification_url: "https://backend-saasss.vercel.app/api/webhook",
         },
       })
       .then(console.log)
@@ -35,7 +42,7 @@ const paymentController = {
 
     const options = {
       offset: 0,
-      limit: 2,
+      limit: 3,
     };
     const searched = await preference.search({ options });
 

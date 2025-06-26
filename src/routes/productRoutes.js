@@ -24,6 +24,9 @@ router
   .put((req, res) => userController.updateProduct(req, res));
 router.route("/payment").post((req, res) => paymentController.create(req, res));
 router
+  .route("/getReference")
+  .get((req, res) => paymentController.getReference(req, res));
+router
   .route("/webhook")
   .post((req, res) => paymentController.reqPayment(req, res));
 
