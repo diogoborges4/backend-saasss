@@ -19,11 +19,9 @@ const productController = {
     try {
       const id = req.params.id;
 
-      const image = req.file.filename;
-
       const productReq = {
         productName: req.body.productName,
-        src: image,
+        src: req.body.imageUrl,
         description: req.body.description,
         value: req.body.value,
       };
